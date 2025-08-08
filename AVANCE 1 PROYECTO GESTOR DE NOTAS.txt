@@ -1,0 +1,65 @@
+Titulo del proyecto
+GESTOR DE NOTAS ACADEMICAS
+
+Redacción del problema:
+Es un sistema creado para que los estudiantes puedan gestionar fácilmente sus calificaciones en los diferentes cursos. Este sistema opera utilizando Python y esta dirigido a estudiantes que desean tener un control organizado y eficiente de sus notas, sin necesidad de usar aplicaciones mas complejas o bases de datos. Este permite registrar, buscar, modificar. eliminar y ordenar las calificaciones, facilitando el análisis y de los resultados académicos.
+
+El objetivo principal es cubrir la necesidad de contar con un programa que permita gestionar múltiples opciones relacionadas con las notas, usando estructuras del lenguaje Python. Además incorpora funcionalidades como la búsqueda, el orden por notas y nombres, como el manejo de pilas y colas para registrar cambios y solicitudes. 
+
+Requisitos del sistema 
+FUNCIONALES
+Registrar un nuevo curso y su nota correspondiente.
+Mostrar todos los cursos y notas registrados.
+Buscar un curso por nombre
+Ordenar los cursos por nota y por nombre
+Actualizar y eliminar notas de cursos existentes
+Simular solicitudes de revisión mediante una cola y visualizar cambios recientes con una pila.
+
+NO FUNCIONALES
+El sistema se ejecutara en consola usando Python
+No se usaran librerías externas, solo funcionalidades básicas
+Esta programado con bucles y condicionales en pseudocodigo
+
+pseudocodigo. txt
+INICIO
+IMPRIMIR "===GESTOR DE NOTAS ACADEMICAS==="
+MIENTRAS TRUE HACER
+IMPRIMIR "Seleccione una opcion:"
+IMPRIMIR "1. Registrar nuevo curso"
+IMPRIMIR "2. Mostrar todos los cursos y notas"
+IMPRIMIR "3. Buscar curso por nombre (lineal)"
+IMPRIMIR "4. Ordenar curso por nota (burbuja)"
+IMPRIMIR "5. Ordenar cursos por nombre (insercion)"
+IMPRIMIR "6. Buscar curso por nombre (binaria)"
+IMPRIMIR "7. Actualizar nota de un curso"
+IMPRIMIR "8. Eliminar un curso"
+IMPRIMIR "9. Simular solicitudes de revision (cola)"
+IMPRIMIR "10. Mostrar historial de cambios (pila)"
+IMPRIMIR "11. Salir"
+LEER opción
+SI opción = 1 ENTONCES
+<accion: registrar nuevo curso>
+SINO SI opción = 2 Entonces
+<accion: mostrar todos los cursos>
+SINO SI opción = 3 Entonces
+<accion: búsqueda lineal por nombre>
+SINO SI opción = 4 Entonces
+<accion: ordenar por nota con burbuja>
+SINO SI opción = 5 Entonces
+<accion: ordenar por nombre de insercion>
+SINO SI opción = 6 Entonces
+<accion: búsqueda binaria por nombre>
+SINO SI opción = 7 Entonces
+<accion: actulizar nota>
+SINO SI opcion = 8 Entonces
+<accion: eliminar curso>
+SINO SI opcion = 9 Entonces
+<accion: simular solicitudes en cola>
+SINO SI opcion = 10 Entonces
+<accion: mostrar historial de cambios en pila>
+SINO SI opcion = 11 Entonces
+IMPRIMIR "¡Gracias por usar el sistema. ADIOS!"
+FIN_SI
+FIN_MIENTRAS
+FIN
+
