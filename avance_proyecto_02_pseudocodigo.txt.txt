@@ -1,0 +1,61 @@
+INICIO
+
+// declarar variables
+DEFINIR cantidad_notas COMO ENTERO
+DEFINIR nota, suma, promedio COMO REAL
+DEFINIR continuar COMO CARACTER
+DEFINIR  notas COMO ARREGLO DE REALES
+
+//  iniciar variables
+cantidad_notas <- 0
+suma <- 0
+promedio <- 0
+continuar <- 'Si' 
+notas [100]
+
+MIENTRAS (CONTINUAR = 'Si' O continuar = 'si') y cantidad_notas < 100 hacer
+ESCRIBIR "Ingrese la nota", cantidad_notas + 1, ": "
+LEER nota_temp // variable para validación
+
+// validación vacia
+SI nota_temp = "" ENTONCES
+ESCRIBIR "Error: No puede ingresar una nota vacia."
+ESCRIBIR "Ingrese un valor numerico."
+FIN_SI
+
+// validación numérica
+SINO es_numerico(nota_temp) ENTONCES
+ESCRIBIR "Error: debe ingresar un valor numerico"
+FIN_SI
+
+SI nota < 0 O > 100 ENTONCES
+ESCRIBIR "Error: la nota debe estar entre 0 y 100"
+FIN_SI
+
+// almacenar nota
+notas[cantidad_notas]<-nota
+suma <- suma + nota
+cantidad_notas <- cantidad_notas + 1
+
+SI cantidad_notas < 100 ENTONCES
+ESCRIBIR "¿Desea ingresar otra nota? (Si/No)"
+LEER continuar
+
+SINO
+SI cantidad_notas > 100 ENTONCES
+ESCRIBIR "Maximo de notas alcanzado (100 notas)"
+continuar <- 'No'
+FIN_SI
+
+// CALCULAR PROMEDIO
+promedio <- suma / cantidad_notas
+
+// mostrar resultados
+ESCRIBIR "Suma total: ", suma
+ESCRIBIR "Promedio: ", promedio
+
+FIN
+
+
+
+
