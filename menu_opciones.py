@@ -1,3 +1,5 @@
+cursos = []
+
 def registrar_curso():
     print("REGISTRAR NUEVO CURSO")
 
@@ -5,7 +7,7 @@ def registrar_curso():
     while True:
         nombre_curso = input("Ingrese el nombre del curso: ")
 
-        if nombre_curso == "":
+        if nombre_curso.strip() == "":
             print("Error: El nombre del curso no puede estar vacio. ")
             print("Ingresa el nombre del curso.")
         else:
@@ -17,7 +19,7 @@ def registrar_curso():
             nota_input = input("Ingrese la nota obtenida: ")
 
             # validar vacio
-            if nota_input == "":
+            if nota_input.strip() == "":
                 print("Error: La nota no puede estar vacia. ")
                 continue
 
@@ -32,7 +34,10 @@ def registrar_curso():
 
         except ValueError:
             print("Error: Debe ingresar un valor numerico. ")
-
+    
+    #Guardar curso en lista
+    cursos.append({"nombre": nombre_curso, "nota": nota})
+    
     # confirmacion
     print(f"Curso '{nombre_curso}' con nota {nota:.2f} registrado con exito.")
 
@@ -48,19 +53,51 @@ def main():
     print ("Registro exitoso.")
 if __name__== "__main__":
     main()
-#----------------------------------------------------------------------------
-cursos= registrar_curso
+#-----------------------------------------------------------------------
 
-
-def mostrar_cursos():
+def mostrar_curso():
+    print("CURSOS REGISTRADOS")
     if not cursos:
-        print("\n No hay cursos registrados. \n")
+        print("No hay cursos registrados.")
     else:
-        print("\n Cursos registrados:\n")
-        for i, curso in enumerate(cursos, 1):
-            print(f"{i}. {curso['nombre']} - Nota: {curso['nota']}")
-            print()
-mostrar_cursos()
+        for i, curso in enumerate(cursos, start=1):
+            print(f"{i}. {curso['nombre']} - Nota: {curso['nota']:.2f}")
+    print()
+#-------------------------------------------------------------------------------------
+
+def calcular_promedio():
+    print("PROMEDIO GENERAL")
+    if not cursos:
+        print("No hay cursos registrados.")
+    else:
+        suma = sum(curso["nota"] for curso in cursos)
+        promedio = suma / len(cursos)
+        print(f"El promedio general es: {promedio:.2f}")
+
+#-------------------------------------------------------------------------------------------
+
+def contar_aprobados_reprobados():
+    print("CURSOS APROBADOS Y REPROBADOS")
+    if not cursos:
+        print("No hay cursos registrados.")
+    else:
+        aprobados = sum(1 for curso in cursos if curso ["nota"] >= 61)
+        reprobados = len(cursos) - aprobados
+        print(f"Cursos aprobados: {aprobados}")
+        print(f"Cursos reprobados: {reprobados}")
+
+#---------------------------------------------------------------------------------------------------
+
+def buscar_curso_lineal(nombre):
+    print("BUSCAR CURSO")
+    for curso in cursos:
+        if curso["nombre"].lower() == nombre.lower():
+            print(f"Curso encontrado: {curso['nombre']} - Nota: {curso['nota']:.2f}")
+            return curso
+    print("Curso no encontrado.")
+    return None
+
+
 
 while True:
     print("==== GESTOR DE NOTAS ACADEMICAS ====")
@@ -84,7 +121,7 @@ while True:
     elif opcion == "2":
         mostrar_curso()
     elif opcion == "3":
-        calcular_promediol()
+        calcular_promedio()
     elif opcion == "4":
         contar_aprobados_reprobados()
     elif opcion == "5":
