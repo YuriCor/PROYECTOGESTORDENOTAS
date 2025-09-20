@@ -97,7 +97,40 @@ def buscar_curso_lineal(nombre):
     print("Curso no encontrado.")
     return None
 
+#-----------------------------------------------------------------------------------------------------------------
+def actualizar_nota():
+    print("ACTUALIZAR NOTA DE UN CURSO")
+    nombre = input("Ingrese el nombre del curso a actualizar: ")
+    resultado = buscar_curso_lineal(nombre)
 
+    if resultado:
+        curso, nota = resultado
+        print(f"Curso encontrado: {curso} - Nota actual: {nota:.2f}")
+        while True:
+            try:
+                nueva_nota = float(input("Ingrese la nueva nota (0-100): "))
+                if 0 <= nueva_nota <= 100:
+                    cursos[i] = (curso, nueva_nota)
+                    print(f"Nota del curso '{curso}' actualizada a {nueva_nota:2f}\n")
+                    break
+                else:
+                    print("Error: La nota debe estar entre 0 y 100. ")
+            except ValueError:
+                print("Error: Debe ingresar un numero valido.")
+        else:
+            print("curso no encontrado.\n")
+#-----------------------------------------------------------------------------------------------
+def eliminar_curso():
+    print("ELIMINAR UN CURSO")
+    nombre = input("Ingrese el nombre del curso a eliminar")
+    resultado = buscar_curso_lineal(nombre)
+
+    if resultado:
+        i, curso, nota = resultado
+        cursos.pop(i)
+        print(f"Curso '{curso}' eliminado correctamente.\n")
+    else:
+        print("Curso no encontrado.")
 
 while True:
     print("==== GESTOR DE NOTAS ACADEMICAS ====")
